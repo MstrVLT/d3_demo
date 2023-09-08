@@ -21,6 +21,4 @@ export function useD3Bars(el, sample, yScale, xScale, width, height) {
                 .attr('width', x.bandwidth())
         })
     })
-
-    return { }
 }

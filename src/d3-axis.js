@@ -21,6 +21,4 @@ export function useD3Axis(el, sample, yScale, xScale, width, height) {
                 .call(toValue(left_axis))
         })
     })
-
-    return { xScale, yScale }
 }
