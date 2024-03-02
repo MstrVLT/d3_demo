@@ -6,7 +6,6 @@ import {useD3Bars} from "../d3-bars";
 import {useD3Scales} from "../d3-scales";
 
 const el = ref(null)
-const svgEl = ref(null)
 const chartEl = ref(null)
 const {width, height} = useElementSize(el)
 
@@ -73,9 +72,8 @@ useD3Bars(chartEl, sample, yScale, xScale, width, height)
 
 <template>
   <div ref="el">
-    <svg ref="svgEl" :width="width" :height="height" :viewBox="`0 0 ${width} ${height}`">
-      <g ref="chartEl" transform="translate(60, 60)">
-      </g>
+    <svg :width="width" :height="height" :viewBox="`0 0 ${width} ${height}`">
+      <g ref="chartEl" transform="translate(60, 60)"/>
     </svg>
   </div>
 </template>
