@@ -12,13 +12,13 @@ export function useD3Bars(el, sample, yScale, xScale, width, height) {
 
             select(toValue(el))
                 .selectAll('.bar')
-                .data(toValue(sample), d => d.language)
+                .data(toValue(sample), (d, idx) => d?.language)
                 .join(
                     enter => enter
                         .append("rect")
-                        .attr('class', 'bar')
-                        .attr('x', (s) => x(s.language)),
+                        .attr('class', 'bar'),
                     update => update
+                        .attr('x', (s) => x(s.language))
                         .attr('y', (s) => y(s.value))
                         .attr('height', (s) => Math.max(h - y(s.value), 0))
                         .attr('width', x.bandwidth()),
