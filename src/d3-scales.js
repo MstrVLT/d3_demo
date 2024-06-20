@@ -1,17 +1,17 @@
 // d3-axis.js
 import {ref, watchEffect, toValue, computed, onMounted} from 'vue'
-import { scaleLinear, scaleBand } from "d3-scale";
+import * as d3 from "d3";
 
 export function useD3Scales(el, sample, width, height) {
 
     const yScale = computed(() => {
-        return scaleLinear()
+        return d3.scaleLinear()
             .range([toValue(height) - 2 * 60, 0])
             .domain([0, 100]);
     })
 
     const xScale = computed(() => {
-        return scaleBand()
+        return d3.scaleBand()
             .range([0, toValue(width) - 2 * 60])
             .domain(toValue(sample).map((s) => s.language))
             .padding(0.4)
